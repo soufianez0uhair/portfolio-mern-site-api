@@ -22,6 +22,28 @@ const getProjects = async (req, res) => {
         })
 }
 
+const createProject = async (req, res) => {
+    const {title, description, github, demo} = req.body;
 
+    try {
+        const project = await Project.create({title, description, github, demo});
 
-module.exports = {getProjects}
+        return res
+                  .status(200)
+                  .json({
+                    status: 'success',
+                    data: {
+                        project
+                    }
+                  })
+    } catch(err) {
+        return res
+                  .status(400)
+                  .json({
+                    status: 'fail',
+                    message: err.message
+                  })
+    }
+}
+
+module.exports = {getProjects, createProject}
