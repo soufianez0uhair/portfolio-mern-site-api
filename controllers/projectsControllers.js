@@ -24,10 +24,10 @@ const getProjects = async (req, res) => {
 }
 
 const createProject = async (req, res) => {
-    const {title, description, github, demo} = req.body;
+    const {title, description, github, demo, imgDesktop, imgMobile} = req.body;
 
     try {
-        const project = await Project.create({title, description, github, demo});
+        const project = await Project.create({title, description, github, demo, imgMobile, imgDesktop});
 
         return res
                   .status(200)

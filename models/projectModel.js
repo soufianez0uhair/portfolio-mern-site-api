@@ -18,6 +18,14 @@ const projectSchema = new Schema({
     demo: {
         type: String,
         required: true
+    },
+    imgDesktop: {
+        type: String,
+        required: true
+    },
+    imgMobile: {
+        type: String,
+        required: true
     }
 }, {timestamps: true});
 
